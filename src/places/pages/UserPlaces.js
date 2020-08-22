@@ -30,7 +30,12 @@ const UserPlaces = () => {
     fetchPlaces();
   }, [userId, sendRequest]);
 
-  // const loadedPlaces = DUMMY_PLACES.filter((place) => place.creator === userId);
+  const placeDeletedHandler = (deletedPlaceId) => {
+    setPlaces((prevPlaces) =>
+      prevPlaces.filter((place) => place.id !== deletedPlaceId)
+    );
+  };
+
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
@@ -39,7 +44,9 @@ const UserPlaces = () => {
           <LoadingSpinner asOverlay />
         </div>
       )}
-      {!isLoading && places && <PlaceList items={places} />}
+      {!isLoading && places && (
+        <PlaceList items={places} onDeletePlace={placeDeletedHandler} />
+      )}
     </React.Fragment>
   );
 };

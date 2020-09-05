@@ -24,7 +24,7 @@ const PlaceList = (props) => {
           <PlaceItem
             key={place.id}
             id={place.id}
-            image={`http://localhost:5000/${place.image}`}
+            image={`${process.env.REACT_APP_ASSET_URL}/${place.image}`}
             title={place.title}
             description={place.description}
             address={place.address}

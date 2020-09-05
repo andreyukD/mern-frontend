@@ -51,13 +51,13 @@ const PlaceItem = (props) => {
       <Modal
         show={showMap}
         onCancel={closeMapHandler}
-        header={props.address}
+        header={`${props.title} - ${props.address}`}
         contentClass="place-item__modal-content"
         footerClass="place-item__modal-actions"
         footer={<Button onClick={closeMapHandler}>CLOSE</Button>}
       >
         <div className="map-container">
-          <Map center={props.coordinates} zoom={16} />
+          <Map title={props.title} center={props.coordinates} zoom={10} />
         </div>
       </Modal>
       <Modal

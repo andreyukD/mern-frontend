@@ -2,3 +2,7 @@
   width: 100%;
   height: 100%;
 }
+
+.map iframe {
+  height: 15rem;
+}
